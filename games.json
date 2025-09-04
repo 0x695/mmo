@@ -1,183 +1,228 @@
-[
-  {
-    "id": "everquest",
-    "title": "EverQuest",
-    "release_year": 1999,
-    "status": "live",
-    "developer": "Verant Interactive / Daybreak Game Company",
-    "publisher": "Sony Online Entertainment",
-    "official_website": "https://www.everquest.com/",
-    "icon": "icons/everquest.png",
-    "servers": [
-      {
-        "name": "Live Servers",
-        "type": "official",
-        "region": "Global",
-        "ruleset": "PvE",
-        "address": "",
-        "population": "Medium"
-      }
-    ]
-  },
-  {
-    "id": "everquest2",
-    "title": "EverQuest II",
-    "release_year": 2004,
-    "status": "live",
-    "developer": "Sony Online Entertainment",
-    "publisher": "Daybreak Game Company",
-    "official_website": "https://www.everquest2.com/",
-    "icon": "icons/everquest2.png",
-    "servers": [
-      {
-        "name": "Live Servers",
-        "type": "official",
-        "region": "Global",
-        "ruleset": "PvE",
-        "address": "",
-        "population": "Medium"
-      }
-    ]
-  },
-  {
-    "id": "eveonline",
-    "title": "EVE Online",
-    "release_year": 2003,
-    "status": "live",
-    "developer": "CCP Games",
-    "publisher": "CCP Games",
-    "official_website": "https://www.eveonline.com/",
-    "icon": "icons/eve.png",
-    "servers": [
-      {
-        "name": "Tranquility",
-        "type": "official",
-        "region": "Global",
-        "ruleset": "PvP",
-        "address": "",
-        "population": "High"
-      }
-    ]
-  },
-  {
-    "id": "lotro",
-    "title": "The Lord of the Rings Online",
-    "release_year": 2007,
-    "status": "live",
-    "developer": "Turbine / Standing Stone Games",
-    "publisher": "Daybreak Game Company",
-    "official_website": "https://www.lotro.com/",
-    "icon": "icons/lotro.png",
-    "servers": [
-      {
-        "name": "Live Servers (x64)",
-        "type": "official",
-        "region": "Global",
-        "ruleset": "PvE",
-        "address": "",
-        "population": "Medium"
-      }
-    ]
-  },
-  {
-    "id": "swtor",
-    "title": "Star Wars: The Old Republic",
-    "release_year": 2011,
-    "status": "live",
-    "developer": "BioWare",
-    "publisher": "Electronic Arts",
-    "official_website": "https://www.swtor.com/",
-    "icon": "icons/swtor.png",
-    "servers": [
-      {
-        "name": "Live Servers",
-        "type": "official",
-        "region": "Global",
-        "ruleset": "PvE",
-        "address": "",
-        "population": "Medium"
-      }
-    ]
-  },
-  {
-    "id": "fallout76",
-    "title": "Fallout 76",
-    "release_year": 2018,
-    "status": "live",
-    "developer": "Bethesda Game Studios",
-    "publisher": "Bethesda Softworks",
-    "official_website": "https://fallout.bethesda.net/",
-    "icon": "icons/fallout76.png",
-    "servers": [
-      {
-        "name": "Live Servers",
-        "type": "official",
-        "region": "Global",
-        "ruleset": "PvPvE",
-        "address": "",
-        "population": "Medium"
-      }
-    ]
-  },
-  {
-    "id": "swg",
-    "title": "Star Wars Galaxies",
-    "release_year": 2003,
-    "status": "sunset_private",
-    "end_year": 2011,
-    "developer": "Sony Online Entertainment",
-    "publisher": "LucasArts",
-    "official_website": "https://web.archive.org/web/201112",
-    "icon": "icons/swg.png",
-    "servers": [
-      {
-        "name": "SWGEmu",
-        "type": "private",
-        "region": "Global",
-        "ruleset": "PvE/PvP",
-        "address": "https://swgemu.com/",
-        "population": "Medium"
-      },
-      {
-        "name": "CEMU",
-        "type": "private",
-        "region": "Global",
-        "ruleset": "PvE/PvP",
-        "address": "https://cemu.online/",
-        "population": "Low"
-      }
-    ]
-  },
-  {
-    "id": "matrixonline",
-    "title": "The Matrix Online",
-    "release_year": 2005,
-    "status": "sunset",
-    "end_year": 2009,
-    "developer": "Monolith Productions",
-    "publisher": "Warner Bros. Interactive",
-    "official_website": "https://web.archive.org/web/2009",
-    "icon": "icons/matrixonline.png",
-    "servers": []
-  },
-  {
-    "id": "osrs",
-    "title": "Old School RuneScape",
-    "release_year": 2013,
-    "status": "live",
-    "developer": "Jagex",
-    "publisher": "Jagex",
-    "official_website": "https://oldschool.runescape.com/",
-    "icon": "icons/osrs.png",
-    "servers": [
-      {
-        "name": "Live Servers",
-        "type": "official",
-        "region": "Global",
-        "ruleset": "PvE/PvP",
-        "address": "",
-        "population": "High"
-      }
-    ]
-  }
-]
+{
+  "decades": [
+    {
+      "decade": "1990s",
+      "years": [
+        {
+          "year": 1997,
+          "games": [
+            {
+              "id": "ultima_online",
+              "title": "Ultima Online",
+              "release_year": 1997,
+              "end_year": null,
+              "status": "live_private",
+              "developer": "Origin Systems",
+              "publisher": "Electronic Arts",
+              "official_website": "https://uo.com",
+              "servers": []
+            }
+          ]
+        },
+        {
+          "year": 1999,
+          "games": [
+            {
+              "id": "everquest",
+              "title": "EverQuest",
+              "release_year": 1999,
+              "end_year": null,
+              "status": "live_private",
+              "developer": "Verant Interactive",
+              "publisher": "Sony Online Entertainment",
+              "official_website": "https://www.everquest.com",
+              "servers": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "decade": "2000s",
+      "years": [
+        {
+          "year": 2001,
+          "games": [
+            {
+              "id": "runescape",
+              "title": "Old School RuneScape",
+              "release_year": 2001,
+              "end_year": null,
+              "status": "live",
+              "developer": "Jagex",
+              "publisher": "Jagex",
+              "official_website": "https://oldschool.runescape.com",
+              "servers": []
+            }
+          ]
+        },
+        {
+          "year": 2003,
+          "games": [
+            {
+              "id": "eve_online",
+              "title": "EVE Online",
+              "release_year": 2003,
+              "end_year": null,
+              "status": "live",
+              "developer": "CCP Games",
+              "publisher": "CCP Games",
+              "official_website": "https://www.eveonline.com",
+              "servers": []
+            },
+            {
+              "id": "swg",
+              "title": "Star Wars Galaxies",
+              "release_year": 2003,
+              "end_year": 2011,
+              "status": "sunset_private",
+              "developer": "Sony Online Entertainment",
+              "publisher": "LucasArts",
+              "official_website": "https://www.swgemu.com/",
+              "servers": [
+                {
+                  "name": "SWGEmu",
+                  "type": "private",
+                  "region": "Global",
+                  "ruleset": "PvE/PvP",
+                  "address": "swgemu.com",
+                  "population": "high"
+                },
+                {
+                  "name": "SWG Legends",
+                  "type": "private",
+                  "region": "Global",
+                  "ruleset": "PvE/PvP",
+                  "address": "swglegends.com",
+                  "population": "medium"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "year": 2004,
+          "games": [
+            {
+              "id": "wow",
+              "title": "World of Warcraft",
+              "release_year": 2004,
+              "end_year": null,
+              "status": "live_private",
+              "developer": "Blizzard Entertainment",
+              "publisher": "Blizzard Entertainment",
+              "official_website": "https://worldofwarcraft.blizzard.com",
+              "servers": []
+            }
+          ]
+        },
+        {
+          "year": 2005,
+          "games": [
+            {
+              "id": "matrix_online",
+              "title": "The Matrix Online",
+              "release_year": 2005,
+              "end_year": 2009,
+              "status": "sunset_private",
+              "developer": "Monolith Productions",
+              "publisher": "Warner Bros. Interactive Entertainment",
+              "official_website": "https://en.wikipedia.org/wiki/The_Matrix_Online",
+              "servers": []
+            }
+          ]
+        },
+        {
+          "year": 2004,
+          "games": [
+            {
+              "id": "everquest2",
+              "title": "EverQuest II",
+              "release_year": 2004,
+              "end_year": null,
+              "status": "live_private",
+              "developer": "Sony Online Entertainment",
+              "publisher": "Sony Online Entertainment",
+              "official_website": "https://www.everquest2.com",
+              "servers": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "decade": "2010s",
+      "years": [
+        {
+          "year": 2012,
+          "games": [
+            {
+              "id": "swtor",
+              "title": "Star Wars: The Old Republic",
+              "release_year": 2012,
+              "end_year": null,
+              "status": "live",
+              "developer": "BioWare",
+              "publisher": "Electronic Arts",
+              "official_website": "https://www.swtor.com",
+              "servers": []
+            }
+          ]
+        },
+        {
+          "year": 2013,
+          "games": [
+            {
+              "id": "lotro",
+              "title": "The Lord of the Rings Online",
+              "release_year": 2013,
+              "end_year": null,
+              "status": "live",
+              "developer": "Standing Stone Games",
+              "publisher": "Daybreak Game Company",
+              "official_website": "https://www.lotro.com",
+              "servers": []
+            }
+          ]
+        },
+        {
+          "year": 2013,
+          "games": [
+            {
+              "id": "sto",
+              "title": "Star Trek Online",
+              "release_year": 2013,
+              "end_year": null,
+              "status": "live",
+              "developer": "Cryptic Studios",
+              "publisher": "Perfect World Entertainment",
+              "official_website": "https://www.playstartrekonline.com",
+              "servers": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "decade": "2020s",
+      "years": [
+        {
+          "year": 2020,
+          "games": [
+            {
+              "id": "fallout76",
+              "title": "Fallout 76",
+              "release_year": 2020,
+              "end_year": null,
+              "status": "live",
+              "developer": "Bethesda Game Studios",
+              "publisher": "Bethesda Softworks",
+              "official_website": "https://fallout.bethesda.net",
+              "servers": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
