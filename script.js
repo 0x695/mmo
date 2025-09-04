@@ -48,9 +48,9 @@ fetch("games.json")
 
       card.appendChild(details);
 
-      // Toggle details on click
+      // Toggle details with slide animation
       card.addEventListener("click", () => {
-        details.style.display = details.style.display === "block" ? "none" : "block";
+        details.classList.toggle("open");
       });
 
       container.appendChild(card);

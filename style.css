@@ -1,32 +1,34 @@
-/* Global retro aesthetic */
+/* Global Atari blue screen aesthetic */
 body {
   margin: 0;
   font-family: 'VT323', monospace;
-  background-color: #000000;
-  color: #33ff33; /* neon green terminal */
+  background-color: #0000aa; /* deep Atari blue */
+  color: #ffffff; /* crisp white text */
   font-size: 18px;
+  text-shadow: 0 0 2px #fff; /* slight glow effect */
 }
 
-/* Header styling */
+/* Header */
 header {
   text-align: center;
   padding: 20px;
-  border-bottom: 2px solid #33ff33;
+  border-bottom: 2px solid #ffffff;
   margin-bottom: 20px;
 }
 
 header h1 {
   font-size: 48px;
   margin: 0;
+  color: #ffffff;
 }
 
 header p {
   font-size: 20px;
   margin: 5px 0 0 0;
-  color: #66ff66;
+  color: #ddddff;
 }
 
-/* Game cards container */
+/* Container for cards */
 #games-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -34,25 +36,39 @@ header p {
   padding: 20px;
 }
 
-/* Each card looks like an old DOS window */
+/* Each card looks like an Atari-style window */
 .game-card {
-  border: 2px solid #33ff33;
+  border: 2px solid #ffffff;
   padding: 15px;
-  background-color: #000000;
+  background-color: #000080; /* darker blue inside */
   cursor: pointer;
-  transition: transform 0.1s;
+  transition: transform 0.1s, box-shadow 0.2s;
 }
 
 .game-card:hover {
   transform: scale(1.02);
-  border-color: #66ff66;
+  box-shadow: 0 0 12px #ffffff;
 }
 
 /* Title line */
 .game-header {
   font-size: 24px;
   margin: 0 0 10px 0;
-  color: #00ffcc; /* cyan pop */
+  color: #ffffaa; /* retro yellow accent */
+  display: inline-block;
+  position: relative;
+}
+
+/* Blinking cursor effect after each game title */
+.game-header::after {
+  content: "_";
+  margin-left: 5px;
+  color: #ffffff;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 /* Status indicator */
@@ -60,19 +76,28 @@ header p {
   font-weight: bold;
 }
 
-.status.live { color: #33ff33; }
-.status.sunset { color: #ff3333; }
-.status.sunset_private { color: #ff9933; }
-.status.legacy { color: #cccccc; }
+.status.live { color: #55ff55; }
+.status.sunset { color: #ff5555; }
+.status.sunset_private { color: #ffaa55; }
+.status.legacy { color: #bbbbbb; }
 
-/* Details hidden by default */
+/* Animated details (slide open/close) */
 .game-details {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  margin-top: 0;
+  border-top: 1px dashed #ffffff;
+  padding-top: 0;
+  transition: max-height 0.4s ease, padding-top 0.4s ease, margin-top 0.4s ease;
+}
+
+.game-details.open {
+  max-height: 500px; /* enough to fit server list */
   margin-top: 10px;
-  border-top: 1px dashed #33ff33;
   padding-top: 10px;
 }
 
+/* Inner content spacing */
 .game-details div {
   margin-bottom: 5px;
 }
@@ -81,6 +106,23 @@ header p {
 .server {
   margin-left: 10px;
   padding-left: 10px;
-  border-left: 1px solid #66ff66;
+  border-left: 1px solid #ffffff;
   margin-bottom: 8px;
+  color: #ccccff;
+}
+
+/* Optional retro scanline effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 2px,
+    transparent 2px,
+    transparent 4px
+  );
 }
