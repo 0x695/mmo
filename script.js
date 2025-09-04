@@ -1,29 +1,32 @@
-// Load games from external JSON file
+// === Load games dynamically from JSON ===
 fetch("games.json")
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById("games-container");
 
+    // Loop through all games in the JSON
     data.games.forEach(game => {
-      // Create card
+      // Create card container
       const card = document.createElement("div");
       card.className = "game-card";
 
-      // Header info (always visible)
+      // Game title + release year
       const header = document.createElement("div");
       header.className = "game-header";
       header.textContent = `${game.title} (${game.release_year})`;
       card.appendChild(header);
 
+      // Status (live/sunset/etc.)
       const status = document.createElement("div");
       status.className = `status ${game.status}`;
       status.textContent = `Status: ${game.status.replace("_", " ")}`;
       card.appendChild(status);
 
-      // Hidden details
+      // Hidden details container
       const details = document.createElement("div");
       details.className = "game-details";
 
+      // Core info
       details.innerHTML = `
         <div><strong>Developer:</strong> ${game.developer}</div>
         <div><strong>Publisher:</strong> ${game.publisher}</div>
@@ -32,7 +35,7 @@ fetch("games.json")
         <div><strong>Servers:</strong></div>
       `;
 
-      // Add server list if present
+      // Server list (loop through JSON servers)
       game.servers.forEach(server => {
         const serverDiv = document.createElement("div");
         serverDiv.className = "server";
@@ -46,13 +49,15 @@ fetch("games.json")
         details.appendChild(serverDiv);
       });
 
+      // Attach details to card
       card.appendChild(details);
 
-      // Toggle details with slide animation
+      // Toggle open/close when card is clicked
       card.addEventListener("click", () => {
         details.classList.toggle("open");
       });
 
+      // Add card to page
       container.appendChild(card);
     });
   })

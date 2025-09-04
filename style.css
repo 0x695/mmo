@@ -1,34 +1,38 @@
-/* Global Atari blue screen aesthetic */
+/* === GENERAL TERMINAL AESTHETIC === */
 body {
   margin: 0;
-  font-family: 'VT323', monospace;
-  background-color: #0000aa; /* deep Atari blue */
-  color: #ffffff; /* crisp white text */
+  font-family: 'VT323', monospace; /* retro monospace font */
+  background-color: #000000;       /* pure black background */
+  color: #00ff00;                  /* neon green text */
   font-size: 18px;
-  text-shadow: 0 0 2px #fff; /* slight glow effect */
+  text-shadow: 0 0 5px #00ff00;    /* glowing CRT effect */
 }
 
-/* Header */
+/* === HEADER === */
 header {
   text-align: center;
   padding: 20px;
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 2px solid #00ff00;
   margin-bottom: 20px;
 }
 
 header h1 {
   font-size: 48px;
   margin: 0;
-  color: #ffffff;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
 }
 
 header p {
   font-size: 20px;
   margin: 5px 0 0 0;
-  color: #ddddff;
+  color: #00cc00;
+  opacity: 0; /* start invisible, fade-in later */
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 3.5s; /* wait until typing effect finishes */
 }
 
-/* Container for cards */
+/* === GAME CONTAINER GRID === */
 #games-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -36,82 +40,86 @@ header p {
   padding: 20px;
 }
 
-/* Each card looks like an Atari-style window */
+/* === GAME CARDS === */
 .game-card {
-  border: 2px solid #ffffff;
+  border: 2px solid #00ff00;
   padding: 15px;
-  background-color: #000080; /* darker blue inside */
+  background-color: #001100; /* faint green background inside */
   cursor: pointer;
   transition: transform 0.1s, box-shadow 0.2s;
 }
 
 .game-card:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 12px #ffffff;
+  box-shadow: 0 0 12px #00ff00;
 }
 
-/* Title line */
+/* === GAME TITLE === */
 .game-header {
   font-size: 24px;
   margin: 0 0 10px 0;
-  color: #ffffaa; /* retro yellow accent */
+  color: #00ff00;
   display: inline-block;
   position: relative;
 }
 
-/* Blinking cursor effect after each game title */
+/* Blinking underscore cursor after each game title */
 .game-header::after {
   content: "_";
   margin-left: 5px;
-  color: #ffffff;
+  color: #00ff00;
   animation: blink 1s step-start infinite;
 }
 
+/* Blink animation for cursor */
 @keyframes blink {
   50% { opacity: 0; }
 }
 
-/* Status indicator */
+/* === STATUS COLORS === */
 .status {
   font-weight: bold;
+  color: #00ff00;
 }
 
-.status.live { color: #55ff55; }
-.status.sunset { color: #ff5555; }
-.status.sunset_private { color: #ffaa55; }
-.status.legacy { color: #bbbbbb; }
+.status.live { color: #55ff55; }        /* bright green for live games */
+.status.sunset { color: #ff5555; }      /* red for dead with no servers */
+.status.sunset_private { color: #ffaa55; } /* orange for dead but private servers exist */
+.status.legacy { color: #bbbbbb; }      /* grey for legacy/archival */
 
-/* Animated details (slide open/close) */
+/* === SLIDE OPEN/CLOSE DETAILS === */
 .game-details {
   max-height: 0;
   overflow: hidden;
   margin-top: 0;
-  border-top: 1px dashed #ffffff;
+  border-top: 1px dashed #00ff00;
   padding-top: 0;
   transition: max-height 0.4s ease, padding-top 0.4s ease, margin-top 0.4s ease;
 }
 
 .game-details.open {
-  max-height: 500px; /* enough to fit server list */
+  max-height: 500px; /* enough to fit servers */
   margin-top: 10px;
   padding-top: 10px;
 }
 
-/* Inner content spacing */
+/* Inner spacing */
 .game-details div {
   margin-bottom: 5px;
 }
 
-/* Server list */
+/* Server box */
 .server {
   margin-left: 10px;
   padding-left: 10px;
-  border-left: 1px solid #ffffff;
+  border-left: 1px solid #00ff00;
   margin-bottom: 8px;
-  color: #ccccff;
+  color: #00dd00; /* slightly lighter green */
 }
 
-/* Optional retro scanline effect */
+/* === RETRO EFFECTS === */
+
+/* Scanline effect overlay */
 body::before {
   content: "";
   position: fixed;
@@ -120,9 +128,46 @@ body::before {
   pointer-events: none;
   background: repeating-linear-gradient(
     to bottom,
-    rgba(255,255,255,0.03),
-    rgba(255,255,255,0.03) 2px,
+    rgba(0, 255, 0, 0.05),
+    rgba(0, 255, 0, 0.05) 2px,
     transparent 2px,
     transparent 4px
   );
+}
+
+/* Typing effect for header */
+.typing {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00ff00;
+  animation: typing 3s steps(30, end), blink-cursor 0.8s step-end infinite;
+}
+
+/* Keyframes for typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Blinking cursor for typing effect */
+@keyframes blink-cursor {
+  from, to { border-color: transparent }
+  50% { border-color: #00ff00; }
+}
+
+/* Flicker effect after typing */
+.flicker {
+  animation: flicker 1s linear 3s 3; /* flicker after typing ends */
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 22%, 24%, 55% { opacity: 0.3; }
+}
+
+/* Fade-in for subheading after typing */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
