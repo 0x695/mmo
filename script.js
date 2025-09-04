@@ -1,159 +1,125 @@
-// Fetch the games.json file and display games grouped by decade/year
+// Load JSON and render games grouped by decade → year → game
 fetch("games.json")
   .then(response => response.json())
-  .then(data => renderGames(data));
-
-// Render games by decade and year
-function renderGames(games) {
-  const gameList = document.getElementById("game-list");
-
-  // Sort by release_year
-  games.sort((a, b) => a.release_year - b.release_year);
-
-  // Group by decade
-  const decades = {};
-  games.forEach(game => {
-    const decade = Math.floor(game.release_year / 10) * 10; // e.g. 1999 → 1990
-    if (!decades[decade]) decades[decade] = {};
-    if (!decades[decade][game.release_year]) decades[decade][game.release_year] = [];
-    decades[decade][game.release_year].push(game);
+  .then(data => {
+    renderGames(data);
   });
 
-  // Build collapsible sections
-  for (const decade in decades) {
-    const decadeSection = document.createElement("div");
+// Render function
+function renderGames(data) {
+  const gameList = document.getElementById("game-list");
 
-    const decadeHeader = document.createElement("h2");
+  // Group by decade and year
+  const decades = {};
+  data.forEach(game => {
+    const year = game.release_year;
+    const decade = Math.floor(year / 10) * 10;
+
+    if (!decades[decade]) decades[decade] = {};
+    if (!decades[decade][year]) decades[decade][year] = [];
+
+    decades[decade][year].push(game);
+  });
+
+  // Sort decades and years
+  const sortedDecades = Object.keys(decades).sort((a, b) => a - b);
+
+  sortedDecades.forEach(decade => {
+    // Create decade card
+    const decadeCard = document.createElement("div");
+    decadeCard.className = "decade-card";
+
+    const decadeHeader = document.createElement("div");
     decadeHeader.textContent = `${decade}s`;
     decadeHeader.className = "decade-header";
-    decadeHeader.style.cursor = "pointer";
 
     const decadeContent = document.createElement("div");
-    decadeContent.style.display = "none"; // collapsed by default
+    decadeContent.style.display = (decade === sortedDecades[0] ? "block" : "none");
 
-    // Expand/collapse decade on click
     decadeHeader.addEventListener("click", () => {
       decadeContent.style.display =
         decadeContent.style.display === "none" ? "block" : "none";
     });
 
-    // Inside each decade, group by year
-    for (const year in decades[decade]) {
-      const yearHeader = document.createElement("h3");
+    // Years inside this decade
+    const sortedYears = Object.keys(decades[decade]).sort((a, b) => a - b);
+    sortedYears.forEach(year => {
+      const yearCard = document.createElement("div");
+      yearCard.className = "year-card";
+
+      const yearHeader = document.createElement("div");
       yearHeader.textContent = year;
-      yearHeader.style.cursor = "pointer";
+      yearHeader.className = "year-header";
 
       const yearContent = document.createElement("div");
       yearContent.style.display = "none";
 
-      // Expand/collapse year on click
       yearHeader.addEventListener("click", () => {
         yearContent.style.display =
           yearContent.style.display === "none" ? "block" : "none";
       });
 
+      // Add games inside this year
       decades[decade][year].forEach(game => {
         const card = createGameCard(game);
         yearContent.appendChild(card);
       });
 
-      decadeContent.appendChild(yearHeader);
-      decadeContent.appendChild(yearContent);
-    }
+      yearCard.appendChild(yearHeader);
+      yearCard.appendChild(yearContent);
+      decadeContent.appendChild(yearCard);
+    });
 
-    decadeSection.appendChild(decadeHeader);
-    decadeSection.appendChild(decadeContent);
-    gameList.appendChild(decadeSection);
-  }
-
-  // Open the oldest decade by default
-  const firstDecadeContent = gameList.querySelector("div > div");
-  if (firstDecadeContent) firstDecadeContent.style.display = "block";
+    decadeCard.appendChild(decadeHeader);
+    decadeCard.appendChild(decadeContent);
+    gameList.appendChild(decadeCard);
+  });
 }
 
-// Create a game card (compact: icon + title/year only)
+// Create individual game card
 function createGameCard(game) {
   const card = document.createElement("div");
   card.className = "game-card";
+  card.textContent = `${game.title} (${game.status})`;
 
-  const header = document.createElement("div");
-  header.className = "game-header";
-
-  const icon = document.createElement("img");
-  icon.className = "game-icon";
-  icon.src = game.icon || "icons/placeholder.png";
-  icon.alt = `${game.title} icon`;
-
-  const titleSpan = document.createElement("span");
-  titleSpan.textContent = `${game.title} (${game.release_year})`;
-
-  header.appendChild(icon);
-  header.appendChild(titleSpan);
-  card.appendChild(header);
-
-  // Attach click handler to open modal
-  card.addEventListener("click", () => openGameModal(game));
-
+  card.addEventListener("click", () => showGameModal(game));
   return card;
 }
 
-// ========== MODAL LOGIC ========== //
-const modal = document.getElementById("game-modal");
-const modalBody = document.getElementById("modal-body");
-const closeModal = document.getElementById("close-modal");
+// Show game details in popup modal
+function showGameModal(game) {
+  const modal = document.getElementById("gameModal");
+  const modalBody = document.getElementById("modalBody");
 
-// Open modal with game details
-function openGameModal(game) {
-  let detailsHTML = `
-    <h2>${game.title} (${game.release_year})</h2>
-    <div><strong>Status:</strong> ${game.status.replace("_", " ")}</div>
-    <div><strong>Developer:</strong> ${game.developer}</div>
-    <div><strong>Publisher:</strong> ${game.publisher}</div>
-    ${game.end_year ? `<div><strong>End Year:</strong> ${game.end_year}</div>` : ""}
-    <div><a href="${game.official_website}" target="_blank">Official Website</a></div>
+  let serversHtml = "";
+  if (game.servers && game.servers.length > 0) {
+    serversHtml = "<h3>Servers:</h3><ul>";
+    game.servers.forEach(server => {
+      serversHtml += `<li>${server.name} (${server.type}, ${server.region}) - ${server.ruleset} - ${server.address} [${server.population}]</li>`;
+    });
+    serversHtml += "</ul>";
+  }
+
+  modalBody.innerHTML = `
+    <h2>${game.title}</h2>
+    <p><b>Release Year:</b> ${game.release_year}</p>
+    ${game.end_year ? `<p><b>End Year:</b> ${game.end_year}</p>` : ""}
+    <p><b>Status:</b> ${game.status}</p>
+    <p><b>Developer:</b> ${game.developer}</p>
+    <p><b>Publisher:</b> ${game.publisher}</p>
+    <p><a href="${game.official_website}" target="_blank">Official Website</a></p>
+    ${serversHtml}
   `;
 
-  // Add servers as ASCII-style table
-  if (game.servers && game.servers.length > 0) {
-    detailsHTML += `
-      <table class="server-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Region</th>
-            <th>Ruleset</th>
-            <th>Population</th>
-          </tr>
-        </thead>
-        <tbody>
-    `;
-    game.servers.forEach(server => {
-      detailsHTML += `
-        <tr>
-          <td>${server.name}</td>
-          <td>${server.type}</td>
-          <td>${server.region}</td>
-          <td>${server.ruleset}</td>
-          <td>${server.population}</td>
-        </tr>
-      `;
-    });
-    detailsHTML += `</tbody></table>`;
-  }
+  modal.style.display = "block";
 
-  modalBody.innerHTML = detailsHTML;
-  modal.style.display = "flex"; // show modal
-}
-
-// Close modal when clicking [X]
-closeModal.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-// Also close modal when clicking outside content
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
+  document.getElementById("modalClose").onclick = () => {
     modal.style.display = "none";
-  }
-});
+  };
+
+  window.onclick = event => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+}

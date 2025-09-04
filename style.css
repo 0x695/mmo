@@ -1,102 +1,94 @@
-/* ========== GLOBAL RETRO THEME ========== */
+/* Global retro style */
 body {
-  background-color: #000000;       /* Black background */
-  color: #00ff00;                 /* Fallout Pip-Boy green */
-  font-family: 'Courier New', Courier, monospace;
-  margin: 20px;
+  background-color: #000000;
+  color: #00ff00;
+  font-family: "Courier New", monospace;
+  padding: 20px;
 }
 
-/* Title styling */
+/* Title */
 h1 {
   text-align: center;
-  color: #00ff00;
-  text-shadow: 0 0 5px #00ff00;
+  text-shadow: 0 0 12px #00ff00;
   margin-bottom: 20px;
 }
 
-/* ========== GAME CARDS ========== */
+/* ----- Decade and Year Cards ----- */
+.decade-card {
+  border: 2px solid #00ff00;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #000000;
+  box-shadow: 0 0 12px #00ff00;
+}
+
+.decade-header {
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px #00ff00;
+}
+
+.year-card {
+  border: 1px dashed #00ff00;
+  margin: 10px 0;
+  padding: 8px;
+  background-color: #001100;
+  box-shadow: inset 0 0 8px #00ff00;
+}
+
+.year-header {
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 6px;
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+/* ----- Game Cards ----- */
 .game-card {
   border: 1px solid #00ff00;
-  padding: 10px;
-  margin: 8px 0;
+  padding: 8px;
+  margin: 6px 0;
   cursor: pointer;
-  background-color: #001100; /* Slight green tint */
-  transition: background 0.2s;
+  box-shadow: 0 0 6px #00ff00;
+  transition: transform 0.2s;
 }
+
 .game-card:hover {
+  transform: scale(1.02);
   background-color: #002200;
 }
 
-/* Card header (icon + title/year) */
-.game-header {
-  display: flex;
-  align-items: center;
-}
-.game-icon {
-  width: 32px;
-  height: 32px;
-  image-rendering: pixelated; /* Chunky retro look */
-  margin-right: 10px;
-}
-
-/* ========== MODAL POPUP ========== */
+/* ----- Modal (popup for details) ----- */
 .modal {
-  display: none; /* hidden by default */
+  display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.85); /* dark overlay */
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
+  z-index: 100;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.85);
 }
 
-/* Modal content box */
 .modal-content {
-  background: #000000;
+  background-color: #000000;
   border: 2px solid #00ff00;
+  margin: 10% auto;
   padding: 20px;
-  width: 500px;
-  max-width: 90%;
-  max-height: 80%;
-  overflow-y: auto;
-  box-shadow: 0 0 20px #00ff00;
-  animation: popup 0.3s ease-out;
-}
-
-/* Pop-up animation */
-@keyframes popup {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* Close button */
-.close-btn {
-  float: right;
-  cursor: pointer;
-  font-weight: bold;
+  width: 70%;
+  box-shadow: 0 0 15px #00ff00;
   color: #00ff00;
 }
-.close-btn:hover {
-  color: #ffffff;
+
+.close {
+  color: #00ff00;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-/* ========== SERVER TABLE ========== */
-.server-table {
-  font-family: 'Courier New', Courier, monospace;
-  border-collapse: collapse;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-}
-.server-table th,
-.server-table td {
-  border: 1px solid #00ff00;
-  padding: 4px 6px;
-  text-align: left;
-}
-.server-table th {
-  background-color: #001100;
-  font-weight: bold;
+.close:hover {
+  color: #ffffff;
 }
