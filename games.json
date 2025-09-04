@@ -1,0 +1,170 @@
+{
+  "games": [
+    {
+      "id": "wow",
+      "title": "World of Warcraft",
+      "release_year": 2004,
+      "status": "live",
+      "has_private": true,
+      "official_servers_count": 1,
+      "private_servers_count": 1,
+      "developer": "Blizzard Entertainment",
+      "publisher": "Blizzard Entertainment",
+      "servers": [
+        { "name": "Retail - EU", "type": "official", "region": "EU", "ruleset": "PvE/PvP", "address": "", "population": "high" },
+        { "name": "Warmane - Icecrown", "type": "private", "region": "EU/NA", "ruleset": "PvE/PvP", "address": "logon.warmane.com", "population": "high" }
+      ],
+      "official_website": "https://worldofwarcraft.blizzard.com",
+      "last_updated": "2025-09-04"
+    },
+    {
+      "id": "swg",
+      "title": "Star Wars Galaxies",
+      "release_year": 2003,
+      "end_year": 2011,
+      "status": "sunset",
+      "has_private": true,
+      "official_servers_count": 0,
+      "private_servers_count": 3,
+      "developer": "Sony Online Entertainment",
+      "publisher": "LucasArts",
+      "servers": [
+        { "name": "SWG Legends", "type": "private", "region": "Global", "ruleset": "PvE/PvP", "address": "login.swglegends.com", "population": "medium" },
+        { "name": "SWGEmu Basilisk", "type": "private", "region": "Global", "ruleset": "PvE/PvP", "address": "login.swgemu.com", "population": "medium" },
+        { "name": "Sentinel CEmu", "type": "private", "region": "Global", "ruleset": "PvE/PvP", "address": "login.cemu-online.com", "population": "low" }
+      ],
+      "official_website": "https://www.swglegends.com",
+      "last_updated": "2025-09-04"
+    },
+    {
+      "id": "eso",
+      "title": "The Elder Scrolls Online",
+      "release_year": 2014,
+      "status": "live",
+      "has_private": false,
+      "official_servers_count": 1,
+      "private_servers_count": 0,
+      "developer": "ZeniMax Online Studios",
+      "publisher": "Bethesda Softworks",
+      "servers": [],
+      "official_website": "https://www.elderscrollsonline.com",
+      "steam_appid": 306130,
+      "last_updated": "2025-09-04"
+    },
+    {
+      "id": "lotro",
+      "title": "The Lord of the Rings Online",
+      "release_year": 2007,
+      "status": "live",
+      "has_private": false,
+      "official_servers_count": 10,
+      "private_servers_count": 0,
+      "developer": "Standing Stone Games",
+      "publisher": "Daybreak Game Company",
+      "servers": [
+        { "name": "Arkenstone", "type": "official", "region": "NA", "ruleset": "PvE", "address": "", "population": "medium" },
+        { "name": "Crickhollow", "type": "official", "region": "NA", "ruleset": "PvE", "address": "", "population": "medium" },
+        { "name": "Landroval", "type": "official", "region": "NA", "ruleset": "Roleplay", "address": "", "population": "low" },
+        { "name": "Brandywine", "type": "official", "region": "NA", "ruleset": "PvE", "address": "", "population": "high" },
+        { "name": "Gladden", "type": "official", "region": "NA", "ruleset": "PvE", "address": "", "population": "medium" },
+        { "name": "Anor", "type": "official", "region": "EU", "ruleset": "Legendary", "address": "", "population": "low" },
+        { "name": "Evernight", "type": "official", "region": "EU", "ruleset": "PvE", "address": "", "population": "medium" },
+        { "name": "Laurelin", "type": "official", "region": "EU", "ruleset": "Roleplay", "address": "", "population": "medium" },
+        { "name": "Sirannon", "type": "official", "region": "EU", "ruleset": "PvE", "address": "", "population": "low" },
+        { "name": "Gwaihir", "type": "official", "region": "EU", "ruleset": "PvE", "address": "", "population": "medium" }
+      ],
+      "official_website": "https://www.lotro.com",
+      "steam_appid": 212500,
+      "last_updated": "2025-09-04"
+    },
+    {
+      "id": "sto",
+      "title": "Star Trek Online",
+      "release_year": 2010,
+      "status": "live",
+      "has_private": false,
+      "official_servers_count": 1,
+      "private_servers_count": 0,
+      "developer": "Cryptic Studios",
+      "publisher": "Perfect World Entertainment",
+      "servers": [],
+      "official_website": "https://www.playstartrekonline.com",
+      "steam_appid": 9900,
+      "last_updated": "2025-09-04"
+    },
+    {
+      "id": "swtor",
+      "title": "Star Wars: The Old Republic",
+      "release_year": 2011,
+      "status": "live",
+      "has_private": false,
+      "official_servers_count": 1,
+      "private_servers_count": 0,
+      "developer": "BioWare Austin",
+      "publisher": "Electronic Arts",
+      "servers": [],
+      "official_website": "https://www.swtor.com",
+      "last_updated": "2025-09-04"
+    },
+    {
+      "id": "fallout76",
+      "title": "Fallout 76",
+      "release_year": 2018,
+      "status": "live",
+      "has_private": false,
+      "official_servers_count": 1,
+      "private_servers_count": 0,
+      "developer": "Bethesda Game Studios",
+      "publisher": "Bethesda Softworks",
+      "servers": [],
+      "official_website": "https://fallout.bethesda.net",
+      "steam_appid": 1151340,
+      "last_updated": "2025-09-04"
+    },
+    {
+      "id": "eve",
+      "title": "EVE Online",
+      "release_year": 2003,
+      "status": "live",
+      "has_private": false,
+      "official_servers_count": 1,
+      "private_servers_count": 0,
+      "developer": "CCP Games",
+      "publisher": "CCP Games",
+      "servers": [
+        { "name": "Tranquility", "type": "official", "region": "Global", "ruleset": "PvP sandbox", "address": "", "population": "high" }
+      ],
+      "official_website": "https://www.eveonline.com",
+      "steam_appid": 8500,
+      "last_updated": "2025-09-04"
+    },
+    {
+      "id": "everquest",
+      "title": "EverQuest",
+      "release_year": 1999,
+      "status": "live",
+      "has_private": false,
+      "official_servers_count": 20,
+      "private_servers_count": 0,
+      "developer": "Verant Interactive / SOE",
+      "publisher": "Daybreak Game Company",
+      "servers": [],
+      "official_website": "https://www.everquest.com",
+      "last_updated": "2025-09-04"
+    },
+    {
+      "id": "everquest2",
+      "title": "EverQuest II",
+      "release_year": 2004,
+      "status": "live",
+      "has_private": false,
+      "official_servers_count": 10,
+      "private_servers_count": 0,
+      "developer": "Sony Online Entertainment",
+      "publisher": "Daybreak Game Company",
+      "servers": [],
+      "official_website": "https://www.everquest2.com",
+      "last_updated": "2025-09-04"
+    }
+  ]
+}

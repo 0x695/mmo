@@ -1,0 +1,86 @@
+/* Global retro aesthetic */
+body {
+  margin: 0;
+  font-family: 'VT323', monospace;
+  background-color: #000000;
+  color: #33ff33; /* neon green terminal */
+  font-size: 18px;
+}
+
+/* Header styling */
+header {
+  text-align: center;
+  padding: 20px;
+  border-bottom: 2px solid #33ff33;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 48px;
+  margin: 0;
+}
+
+header p {
+  font-size: 20px;
+  margin: 5px 0 0 0;
+  color: #66ff66;
+}
+
+/* Game cards container */
+#games-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Each card looks like an old DOS window */
+.game-card {
+  border: 2px solid #33ff33;
+  padding: 15px;
+  background-color: #000000;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.game-card:hover {
+  transform: scale(1.02);
+  border-color: #66ff66;
+}
+
+/* Title line */
+.game-header {
+  font-size: 24px;
+  margin: 0 0 10px 0;
+  color: #00ffcc; /* cyan pop */
+}
+
+/* Status indicator */
+.status {
+  font-weight: bold;
+}
+
+.status.live { color: #33ff33; }
+.status.sunset { color: #ff3333; }
+.status.sunset_private { color: #ff9933; }
+.status.legacy { color: #cccccc; }
+
+/* Details hidden by default */
+.game-details {
+  display: none;
+  margin-top: 10px;
+  border-top: 1px dashed #33ff33;
+  padding-top: 10px;
+}
+
+.game-details div {
+  margin-bottom: 5px;
+}
+
+/* Server list */
+.server {
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid #66ff66;
+  margin-bottom: 8px;
+}
