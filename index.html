@@ -3,23 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>MMORPG Codex</title>
-  <!-- Link to external CSS -->
   <link rel="stylesheet" href="style.css">
-  <!-- Retro monospace font (VT323 from Google Fonts) -->
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <!-- Main title with typing + flicker effect -->
-    <h1 class="typing flicker">MMORPG Codex</h1>
-    <!-- Subheading will fade in after typing finishes -->
-    <p class="subheading">Your nostalgic encyclopedia of virtual worlds</p>
-  </header>
+  <h1>📖 MMORPG Codex</h1>
+  <div id="game-list"></div>
 
-  <!-- Game cards will be inserted here by script.js -->
-  <div id="games-container"></div>
+  <!-- Modal container (hidden by default) -->
+  <div id="game-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal" class="close-btn">[X]</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
 
-  <!-- External JS -->
   <script src="script.js"></script>
 </body>
 </html>
